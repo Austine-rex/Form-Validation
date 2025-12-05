@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="index.css">
+  
+</head>
+
+<body>
+
+  <!-- SUCCESS BANNER -->
+  <div id="successBanner" class="success-banner hidden">
+    ✔ Message Sent! <br>Thanks for completing the form. We'll be in touch soon!
+  </div>
+
+  <div class="container">
+    <h2>Contact Us</h2>
+
+    <form id="contactForm">
+
+      <!-- Names -->
+      <div class="row">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" id="firstName">
+          <small class="error">This field is required</small>
+        </div>
+
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" id="lastName">
+          <small class="error">This field is required</small>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label>Email Address *</label>
+        <input type="email" id="email">
+        <small class="error">Please enter a valid email address</small>
+      </div>
+
+      <!-- Query Type -->
+      <label>Query Type *</label>
+      <div class="query-group">
+        <label class="query-option">
+          <input type="radio" name="query" value="General Enquiry">
+          <span>General Enquiry</span>
+        </label>
+
+        <label class="query-option">
+          <input type="radio" name="query" value="Support Request">
+          <span>Support Request</span>
+        </label>
+      </div>
+      <small class="error" id="queryError">Please select a query type</small>
+
+      <!-- Message -->
+      <div class="form-group">
+        <label>Message *</label>
+        <textarea id="message"></textarea>
+        <small class="error">This field is required</small>
+      </div>
+
+      <!-- Consent -->
+      <label class="checkbox">
+        <input type="checkbox" id="consent">
+        <span>I consent to being contacted by the team *</span>
+      </label>
+      <small class="error" id="consentError">To submit, please consent to being contacted</small>
+
+      <button type="submit" class="btn">Submit</button>
+
+    </form>
+  </div>
+  
+  <script src="index.js" defer></script>
+</body>
+</html>
