@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+  }
+  
+  body {
+    background: #dff2e1;
+    padding: 40px 10px;
+    font-family: Austine-fonts;
+  }
+  @font-face {
+        font-family: Austine-fonts;
+        src: url(assets/fonts/static/Karla-Bold.ttf);
+    }
+  
+  .container {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+  }
+  
+  h2 {
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #1a3030;
+  }
+  
+  .row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .form-group {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c6d6d3;
+    border-radius: 6px;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  textarea {
+    height: 120px;
+    resize: none;
+  }
+  
+  /* Focus state */
+  input:focus, textarea:focus {
+    border-color: #2e8b74;
+    box-shadow: 0 0 0 2px rgba(46, 139, 116, 0.2);
+  }
+  
+  /* Error state */
+  .error {
+    color: #c44747;
+    font-size: 13px;
+    margin-top: 5px;
+    display: none;
+  }
+  
+  input.error-input, textarea.error-input {
+    border-color: #c44747;
+    background: #ffecec;
+  }
+  
+  /* Radio group */
+  .query-group {
+    display: grid;
+    grid-template-columns: 50% 48%;
+    gap: 1rem;
+    margin: 10px 0;
+  }
+  
+  .query-option {
+    border: 1px solid #c6d6d3;
+    padding: 12px 15px;
+    border-radius: 6px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .query-option input {
+    width: 10px;
+    
+  }
+  
+  .query-option.selected {
+    border-color: #2e8b74;
+    background: #e2f5ee;
+  }
+  
+  /* Checkbox */
+  .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    
+  }
+
+  .checkbox span{
+    display: inline-block;
+    line-height: 1.4;
+  }
+
+  input[type="checkbox"]{
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    flex-shrink: 0;
+    }
+
+  input[type="radio"],
+  input[type="checkbox"]{
+  accent-color: #0d7a55 ;
+  }
+
+  
+  /* Button */
+  .btn {
+    width: 100%;
+    padding: 15px;
+    background: #0d7a55;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background: #0b6848;
+    cursor: pointer;
+  }
+  
+  /* Success banner */
+  .success-banner {
+    width: 500px;
+    padding: 15px;
+    background: #0b6848;
+    color: white;
+    border-radius: 6px;
+    text-align: left;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    max-width: 650px;
+    margin: 0 auto 0px auto;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* RESPONSIVE DESIGN */
+  @media(max-width: 600px) {
+    .row {
+      flex-direction: column;
+    }
+  
+    .container {
+      padding: 20px;
+    }
+  
+    .query-group {
+      flex-direction: column;
+    }
+  }

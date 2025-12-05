@@ -1,0 +1,372 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    
+    padding: 2rem 1rem 2rem 1rem;
+    background-color: rgb(221, 255, 221);
+}
+@font-face {
+        font-family: Austine-fonts;
+        src: url(assets/fonts/static/Karla-Bold.ttf);
+    }
+.form-mobile{
+background-color: white;
+padding: 1.3rem;
+font-family: Austine-fonts;
+border-radius: 15px;
+
+}
+.form-part{
+    display: flex;
+flex-direction: column;
+}
+.form-part input{
+    border-radius: 10px;
+    height: 4rem;
+}
+.form-part input:hover{
+    border: 1px rgb(8, 68, 8) solid;
+}
+.form-part label{
+    padding-bottom: 1rem;
+}
+.form-part span{
+    padding-bottom: 1rem;
+}
+.contact{
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    font-weight: 800;
+    color: #1a3030;
+}
+.query{
+    display: flex;
+    row-gap: 1rem;
+    flex-direction: column;
+    padding-bottom: 2rem;
+}
+/* 
+.radio{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+.firstBox{
+    border: 1px black solid;
+    width: 100%;
+    border-radius: 15px;
+    padding: 0.5rem 1rem 1rem 3rem;
+    height: 5rem;
+    
+}
+.secondBox{
+     border: 1px black solid;
+    width: 100%;
+    border-radius: 15px;
+    padding: 0.5rem 1rem 1rem 3rem;
+    height: 5rem;
+} */
+.flex2 {
+        display: grid;
+        grid-template-rows: 50% 50%;
+        gap: 0.5rem;
+    }
+    .flex2 .first2:hover{
+        border: 2px  rgb(8, 68, 8) solid ;
+        background-color: rgb(175, 238, 175);
+        color: black;
+        cursor: pointer;
+
+    }
+    .flex2 input{
+        margin-top: -1.4rem;
+    }
+     .flex2 .second2:hover{
+        border: 2px  rgb(8, 68, 8) solid ;
+        background-color: rgb(175, 238, 175);
+        color: black;
+        cursor: pointer;
+
+    }
+    .first2{
+        height: 3rem;
+        padding: 1rem 1rem 1rem 1.5rem;
+        text-align: left;
+        width: 100%;
+        border-radius: 10px;
+        border: 2px black solid;
+    }
+    .second2{
+          padding: 1rem 1rem 1rem 1.5rem;
+        text-align: left;
+         height: 3rem;
+        width: 100%;
+        border-radius: 10px;
+        border: 2px black solid;
+    }
+    .flex2 .first2{
+         display: grid;
+      grid-template-columns: 1rem 8rem;
+      gap: 2rem;
+    }
+    .flex2 .second2{
+      display: grid;
+      grid-template-columns: 1rem 8rem;
+      gap: 2rem;
+    }
+
+.checkbox{
+    display: flex;
+    column-gap: 2rem;
+}
+ input[type="submit"]{
+            background-color: rgb(25, 82, 25);
+            color: white;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+            width: 100%;
+            font-size: 1.5rem;
+           
+}
+#comment{
+    border-radius: 15px;
+     height: 15rem;
+     padding: 1rem;
+     
+}
+#comment:hover{
+    border: 1px rgb(8, 68, 8) solid;
+}
+section span {
+    display:none;
+    color: red;
+   
+}
+
+/* section .error{
+    display: block;
+} */
+textarea,
+input[type = 'submit']{
+    width: 100%;
+}
+/* section span {
+    display: none;
+    color: red;
+} */
+/* textarea,
+input[type = "submit"]{
+    width: 100%;
+} */
+/* section .error{
+    display: block;
+} */
+/* section .ferror{
+    display: block;
+}
+section .lerror{
+    display: block;
+}
+section .merror{
+    display: block;
+}
+section .cerror{
+    display: block;
+}
+section .rerror{
+    display: block;
+} */
+section article {
+    margin-bottom: 0.5rem;
+
+    
+}
+
+.desktop-form{
+    display: none;
+}
+
+@media  screen and (min-width: 868px) {
+    body{
+        background-color: #dff2e1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem 18rem 3rem 18rem;
+    }
+    @font-face {
+        font-family: Austine-fonts;
+        src: url(assets/fonts/static/Karla-Bold.ttf);
+    }
+    .form-mobile{
+        display: none;
+    }
+    .desktop-form{
+        display: block;
+    }
+    form{
+        background-color: white;
+        width: 100%;
+        padding: 2rem;
+        border-radius: 20px;
+        padding: 2rem;
+        font-family: Austine-fonts;
+       
+    }
+    .input{
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: 50% 50%;
+    }
+    .input #fname:hover{
+        border-color: #2e8b74;
+    box-shadow: 0 0 0 2px rgba(46, 139, 116, 0.2);
+        cursor: pointer;
+    }
+     .input #lname:hover{
+          border-color: #2e8b74;
+    box-shadow: 0 0 0 2px rgba(46, 139, 116, 0.2);
+        cursor: pointer;
+    }
+    .input #fname{
+        height: 3rem;
+        width: 100%;
+        border-radius: 10px;
+    }
+    .input #lname{
+        height: 3rem;
+        width: 98%;
+        border-radius: 10px;
+    }
+    .email{
+        display: flex;
+        flex-direction: column;
+    }
+    .email input:hover{
+         border-color: #2e8b74;
+    box-shadow: 0 0 0 2px rgba(46, 139, 116, 0.2);
+        cursor: pointer;
+    }
+    .email input {
+        height: 3rem;
+        border-radius: 10px;
+    }
+    .email label{
+        padding-bottom: 1rem;
+        
+    }
+    .query label {
+     padding-top: 1rem;
+    }
+    .flex {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 0.5rem;
+    }
+    .flex .first:hover{
+       border-color: #2e8b74;
+    box-shadow: 0 0 0 2px rgba(46, 139, 116, 0.2);
+        color: black;
+        cursor: pointer;
+         background: #e2f5ee;
+
+    }
+     .flex .second:hover{
+         background: #e2f5ee;
+      border-color: #2e8b74;
+    box-shadow: 0 0 0 2px rgba(46, 139, 116, 0.2);
+        color: black;
+        cursor: pointer;
+
+    }
+    .first{
+        height: 3rem;
+        padding: 1rem 1rem 1rem 1.5rem;
+        text-align: left;
+        width: 100%;
+        border-radius: 10px;
+        border: 2px black solid;
+    }
+    .second{
+          padding: 1rem 1rem 1rem 1.5rem;
+        text-align: left;
+         height: 3rem;
+        width: 98%;
+        border-radius: 10px;
+        border: 2px black solid;
+    }
+    .flex .first{
+         display: grid;
+      grid-template-columns: 1rem 8rem;
+      gap: 2rem;
+    }
+    .flex .second{
+      display: grid;
+      grid-template-columns: 1rem 8rem;
+      gap: 2rem;
+    }
+    .messages{
+        display: flex;
+        flex-direction: column;
+    }
+    .messages textarea:hover{
+        border: 1px rgb(47, 124, 47) solid;
+        cursor: pointer;
+         border-color: #2e8b74;
+    box-shadow: 0 0 0 2px rgba(46, 139, 116, 0.2);
+    }
+    .messages label{
+        padding-bottom: 1rem;
+    }
+    .checkBox{
+        accent-color: green;
+        padding-top: 2rem;
+        display: flex;
+        gap: 2.5rem;
+    }
+    .submit{
+        padding-top: 2rem;
+        
+    }
+    .submit input{
+        padding: 0.8rem;
+    }
+    /* section span {
+        display: none;
+        padding-top:-1rem ;
+    } */
+    input.error-input{
+         border-color: #c44747;
+    background: #ffecec;
+    }
+    /* .form-main.error input[type = 'text'],
+    .form-main.error input[type = 'email'],
+    .form-main.flex,
+    .form-main.messages{
+        border-color: red;
+    } */
+
+    .error{
+         color: #c44747;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+    }
+    /* .submit-banner{
+        width: 500px;
+    padding: 15px;
+    background: #0b6848;
+    color: white;
+    border-radius: 6px;
+    text-align: left;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    max-width: 650px;
+    margin: -100% auto 0px 50%;
+    } */
+}
+

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: black;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            width: 50%;
+            background-color: white;
+            padding: 1rem;
+        }
+        section:not(section:last-child){
+            display: flex;
+        }
+        section  article{
+            flex-grow: 1;
+            margin-bottom: 0.5rem;
+
+            label{
+                display: block;
+            }
+        
+        }
+        section span{
+            display: none;
+            color: red;
+        } 
+        textarea,
+        input[type="submit"]{
+            width: 100%;
+        }
+
+        input[type="submit"]{
+            background-color: green;
+            color: white;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+        }
+
+        section .error{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Form Validation</h1>
+    <form action="">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <section>
+                <article>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" name="fname" id="fname">
+                    <span class="ferror">This field is required *</span>
+                </article>
+                <article>
+                    <label for="lastName">last Name:</label>
+                    <input type="text" name="lname" id="lname">
+                    <span class="lerror">This field is required *</span>
+                </article>
+            </section>
+            <section>
+                <article>
+                    <label for="gender">Gender</label>
+                    <div>
+                  male: <input type="radio" name="gender">
+                   female: <input type="radio" name="gender">
+                    </div>
+                    <span class="gerror">This field is required *</span>
+            </article>
+            <article>
+            <select name="country" id="country">
+            <option value=""></option>
+            <option value="Abuja">Abuja</option>
+            <option value="Niger">Niger</option>
+            <option value="Imo">Imo</option>
+            <option value="Edo">Edo</option>
+             </select>
+                    <span class="serror">This field is required *</span>
+                </article>
+            </section>
+            <section>
+                <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Enter comment Here"></textarea>
+                <span class="cerror" id="cerror">This field is required *</span>
+            </section>
+        </fieldset>
+        <input type="submit" value="Sumbit">
+    </form>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+            const firstName = document.querySelector('#fname')
+            const lastName = document.querySelector('#lname')
+            const genders = document.getElementsByName('gender')
+            const country = document.getElementById('country')
+            const comment = document.getElementById('comment')
+            const firstNameError = document.querySelector('.ferror')
+            const lastNameError = document.querySelector('.lerror')
+            const genderError = document.querySelector('.gerror')
+            const countryError = document.querySelector('.serror')
+            const commentError = document.querySelector('.cerror')
+
+
+            form.addEventListener('submit', (event) => {
+
+                event.preventDefault()
+                
+                const firstNameValue = firstName.value.trim()
+                const lastNameValue = lastName.value.trim()
+                const countryValue = country.value.trim()
+                const commentValue = comment.value.trim()
+
+                let isGenderChecked = false;
+                let isValid = true;
+
+                genders.forEach(gender => {
+                    if(gender.checked){
+                        return isGenderChecked = true;
+                    }
+                })
+                
+
+                if (!firstNameValue) {
+                     firstNameError.classList.add('error');
+                     isValid = false; 
+                }else{
+                    firstNameError.classList.remove('error') 
+                }
+
+                if (!lastNameValue) {
+                     lastNameError.classList.add('error');
+                     isValid = false; 
+                }else{
+                    lastNameError.classList.remove('error') 
+                }
+
+                if (!countryValue) {
+                     countryError.classList.add('error');
+                     isValid = false; 
+                }else{
+                    countryError.classList.remove('error') 
+                }
+
+                if (!commentValue) {
+                     commentError.classList.add('error');
+                     isValid = false; 
+                }else{
+                    commentError.classList.remove('error') 
+                }
+
+                if (!isGenderChecked) {
+                     genderError.classList.add('error');
+                     isValid = false; 
+                }else{
+                    genderError.classList.remove('error') 
+                }
+                
+                if(isValid){
+                    form.submit()
+                }
+            })
+        })
+    </script>
+</body>
+</html>

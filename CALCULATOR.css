@@ -1,0 +1,65 @@
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+    background-color: rgb(50, 46, 99);
+
+}
+.calculator{
+     margin:  10rem 40rem;
+    display: grid;
+    grid-template-columns: 28rem;
+    grid-template-rows: 5rem 28rem;
+    row-gap: 2rem;
+}
+.head{
+   background-color: rgb(27, 27, 50);
+    border-radius: 10px;
+    
+    
+}
+.inner-digits{
+    color: white;
+    text-align: right;
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding-right: 2rem;
+}
+.body-part{
+background-color: rgb(27, 27, 50);
+padding: 1rem 1.5rem 1.5rem 1.5rem;    
+border-radius: 10px;
+}
+.grid-buttons{
+    display: grid ;
+    grid-template-columns: 4rem 4rem 4rem 7rem;
+    grid-template-rows: 5rem ;
+    column-gap: 2rem;
+    
+}
+.color{
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.first{
+    grid-column-start: 3;
+    grid-column-end: 1;
+    background-color: rgb(97, 97, 184);
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.7rem;
+    border-radius: 10px;
+}
+.second{
+    grid-column-start: 5;
+    grid-column-end: 3;
+     color: white;
+     background-color: red;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.7rem;
+    border-radius: 10px;
+}
