@@ -6,18 +6,33 @@ form.addEventListener("submit", function (event) {
 
   let valid = true;
 
- 
-  const first = document.querySelector("#firstName");
-  const last = document.querySelector("#lastName");
-  const email = document.querySelector("#email");
-  const message = document.querySelector("#message");
-  const consent = document.querySelector("#consent");
+  // Inputs
+  const first = document.getElementById("firstName");
+  const last = document.getElementById("lastName");
+  const email = document.getElementById("email");
+  const message = document.getElementById("message");
+  const consent = document.getElementById("consent");
 
- 
+  // Query type
   const querySelected = document.querySelector("input[name='query']:checked");
 
   // Validation Function
-  
+  function check(input) {
+    const error = input.parentElement.querySelector(".error");
+    if (!input.value.trim()) {
+      error.style.display = "block";
+      input.classList.add("error-input");
+      valid = false;
+    } else {
+      error.style.display = "none";
+      input.classList.remove("error-input");
+    }
+  }
+
+  check(first);
+  check(last);
+  check(message);
+
   // Email Validation
   const emailError = email.parentElement.querySelector(".error");
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
