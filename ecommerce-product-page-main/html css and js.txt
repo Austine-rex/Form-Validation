@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-commerce Product Page</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+        <figure><img src="/images/logo.svg" alt=""></figure>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <div class="cart-icon" id="cartToggle">
+        <img src="/images/icon-cart.svg" alt="cart" />
+        <span id="cartBadge">0</span>
+      </div>
+      <img src="avatar.png" alt="profile" class="avatar" />
+    </div>
+
+    <div class="cart-dropdown" id="cartDropdown">
+      <h3>Cart</h3>
+      <div id="cartItems" class="empty">Your cart is empty.</div>
+    </div>
+
+  </header>
+
+  <main class="product-page">
+
+    <div class="gallery">
+      <img id="mainImage" src="image-product-1.jpg" alt="product" />
+
+      <div class="thumbnails">
+        <img onclick="changeImage(1)" src="image-product-1-thumbnail.jpg" />
+        <img onclick="changeImage(2)" src="image-product-2-thumbnail.jpg" />
+        <img onclick="changeImage(3)" src="image-product-3-thumbnail.jpg" />
+        <img onclick="changeImage(4)" src="image-product-4-thumbnail.jpg" />
+      </div>
+    </div>
+
+    <div class="product-details">
+      <span class="company">SNEAKER COMPANY</span>
+      <h1>Fall Limited Edition Sneakers</h1>
+      <p class="description">
+        These low-profile sneakers are your perfect casual wear companion.
+      </p>
+
+      <div class="price-section">
+        <span class="current-price">$125.00</span>
+        <span class="discount">50%</span>
+        <span class="original-price">$250.00</span>
+      </div>
+
+      <div class="quantity-selector">
+        <button onclick="updateQty(-1)">−</button>
+        <span id="qty">0</span>
+        <button onclick="updateQty(1)">+</button>
+      </div>
+
+      <button class="add-cart" onclick="addToCart()">Add to cart</button>
+    </div>
+
+  </main>
+
+  <script src="index.js"></script>
+
+</body>
+</html>
+
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+  background: #fff;
+  color: #333;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  position: relative;
+}
+
+.cart-icon {
+  cursor: pointer;
+  position: relative;
+}
+
+#cartBadge {
+  background: orange;
+  padding: 2px 6px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+  display: none;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.cart-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,.1);
+  padding: 16px;
+  display: none;
+  border-radius: 10px;
+}
+
+.cart-dropdown .empty {
+  text-align: center;
+  color: #888;
+  padding: 20px;
+}
+
+.product-page {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.thumbnails img {
+  width: 60px;
+  cursor: pointer;
+  border-radius: 8px;
+  opacity: .6;
+}
+
+.thumbnails img:hover {
+  opacity: 1;
+  border: 2px solid orange;
+}
+
+.product-details {
+  max-width: 400px;
+}
+
+.company {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #888;
+}
+
+.price-section {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.current-price {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.discount {
+  background: #ffe6d6;
+  padding: 2px 6px;
+  color: orange;
+  border-radius: 6px;
+}
+
+.original-price {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.quantity-selector {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.quantity-selector button {
+  background: #f7f7f7;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.add-cart {
+  width: 100%;
+  background: orange;
+  border: none;
+  padding: 14px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+
+
+
+
+
+let qty = 0;
+let cartQty = 0;
+
+function changeImage(num) {
+  document.getElementById('mainImage').src = `image-product-${num}.jpg`;
+}
+
+function updateQty(val) {
+  qty = Math.max(0, qty + val);
+  document.getElementById('qty').innerText = qty;
+}
+
+function addToCart() {
+  if (qty === 0) return;
+
+  cartQty += qty;
+  document.getElementById('cartBadge').style.display = 'block';
+  document.getElementById('cartBadge').innerText = cartQty;
+
+  const cartItems = document.getElementById('cartItems');
+  cartItems.innerHTML = `
+    <div class="cart-item">
+      <img src="image-product-1-thumbnail.jpg" alt="thumbnail"/>
+      <div>
+        Fall Limited Edition Sneakers<br>
+        $125.00 x ${cartQty} <strong>$${125 * cartQty}.00</strong>
+      </div>
+    </div>
+    <button onclick="removeCart()">Remove</button>
+  `;
+}
+
+function removeCart() {
+  cartQty = 0;
+  document.getElementById('cartBadge').style.display = 'none';
+  document.getElementById('cartItems').innerHTML = 'Your cart is empty.';
+}
+
+document.getElementById('cartToggle').addEventListener('click', () => {
+  const cart = document.getElementById('cartDropdown');
+  cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
+});

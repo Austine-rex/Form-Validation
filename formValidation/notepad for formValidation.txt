@@ -1,0 +1,2 @@
+small tag is used to make a text very small
+/^[^\s@]+@[^\s@]+\.[^\s@]+$/ => this in java script is used to validate an email address, makes it possible that a user must put @ for him to continue inputing his email address

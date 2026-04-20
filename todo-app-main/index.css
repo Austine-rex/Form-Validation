@@ -1,0 +1,92 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --bg:#181824;
+  --card:#25273c;
+  --text:white;
+}
+
+body.light{
+  --bg:#f2f2f2;
+  --card:white;
+  --text:black;
+}
+
+body{
+  font-family:sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:0.3s;
+}
+
+/* HEADER */
+.header{
+  background-image:url(./images/bg-mobile-dark.jpg);
+  background-size:cover;
+  padding:2rem;
+}
+
+body.light .header{
+  background-image:url(./images/bg-mobile-light.jpg);
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+h1{
+  letter-spacing:5px;
+}
+
+#theme-toggle{
+  cursor:pointer;
+}
+
+/* INPUT */
+#todo-input{
+  width:100%;
+  padding:1rem;
+  margin-top:2rem;
+  border:none;
+  border-radius:5px;
+}
+
+/* LIST */
+main{
+  padding:1.5rem;
+}
+
+.todo{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--card);
+  padding:1rem;
+  margin-bottom:10px;
+  border-radius:5px;
+}
+
+.todo span.completed{
+  text-decoration:line-through;
+  opacity:0.5;
+}
+
+/* CONTROLS */
+.controls{
+  display:flex;
+  justify-content:space-between;
+  margin-top:1rem;
+}
+
+button{
+  background:none;
+  border:none;
+  color:var(--text);
+  cursor:pointer;
+}

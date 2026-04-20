@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <header class="header">
+
+
+    <article class="nav-bar-selections">
+     <div class="close-hamburger">
+          <figure class="hamburger">
+              <img src="./icon-menu.svg" alt="">
+          </figure>
+
+          <figure class="close">
+            <img src="./icon-close.svg" alt="">
+          </figure>
+     </div>
+
+        <div class="logo-list">
+         <div class="logo">
+        <figure><img src="/images/logo.svg" alt=""></figure>
+       </div>
+       <nav class="nav">
+       <ul>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+        </div>
+   
+
+    <div class="actions">
+      <div class="cart-icon" id="cartToggle">
+        <img src="/images/icon-cart.svg" alt="cart" />
+        <span id="cartBadge">0</span>
+      </div>
+      <img src="/images/image-avatar.png" alt="profile" class="avatar" />
+    </div>
+
+    <div class="cart-dropdown" id="cartDropdown">
+      <h3>Cart</h3>
+      <div id="cartItems" class="empty">Your cart is empty.</div>
+    </div>
+
+    </article>
+    
+    
+  </header>
+
+  <main class="product-page">
+
+     <div class="arrows">
+            <!-- arrow previous  -->
+            <figure class="arrow-left">
+            <img src="./icon-previous.svg" alt="">
+            </figure>
+            <!-- arrow next  -->
+            <figure class="arrow-right">
+            <img src="./icon-next.svg" alt="">
+            </figure>
+      </div>
+
+       <article class="five-sneakers">
+            <div class="first-kicks">
+            <figure class="first">
+            <img src="./image-product-1.jpg" alt="">
+            </figure>
+            </div>
+             <!-- ground sneakers  -->
+            <div class="kicks">
+            <figure class="second">
+             <img src="./image-product-2-thumbnail.jpg" alt="">
+            </figure>
+            
+            <figure class="third">
+            <img src="./image-product-3-thumbnail.jpg" alt="">    
+            </figure>
+
+            <figure class="fourth">
+            <img src="./image-product-4-thumbnail.jpg" alt="">    
+            </figure>
+
+            <figure class="fifth">
+            <img src="./image-product-3-thumbnail.jpg" alt="">    
+            </figure>
+            </div>
+        </article>
+   
+
+    <div class="product-details">
+      <span class="company">SNEAKER COMPANY</span>
+      <h1>Fall Limited Edition Sneakers</h1>
+      <p class="description">
+        These low-profile sneakers are your perfect casual wear <br>companion. Featuring a durable rubber outer sole, they'll <br> withstand everything the weather can offer
+      </p>
+
+      <div class="price-section">
+        <div class="price">
+           <span class="current-price">$125.00</span>
+        <span class="discount">50%</span>
+        </div>
+       
+          <span class="original-price">$250.00</span>
+      </div>
+   
+
+
+       <div class="cart-and-number">
+           <div class="div-quantity">
+       <div class="quantity-selector">
+        <button onclick="updateQty(-1)">−</button>
+        <span id="qty">0</span>
+        <button onclick="updateQty(1)">+</button>
+      </div>
+
+      </div>
+     
+      <button class="add-cart" onclick="addToCart()">Add to cart</button>
+       </div>
+     
+    </div>
+
+  </main>
+
+  <script src="index.js"></script>
+
+</body>
+</html>

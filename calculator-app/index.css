@@ -28,11 +28,12 @@ body{
 
 }
 .switch{
-    margin-top: 1.5rem;
+ margin-top: 1.5rem;
  background-color: rgb(27, 27, 50);
  height: 2rem;
  width: 5rem;
  border-radius: 30px;
+ 
 }
 .switch:hover{
     background-color: beige;

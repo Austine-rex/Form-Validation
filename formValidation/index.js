@@ -29,6 +29,7 @@ form.addEventListener("submit", function (event) {
     }
   }
 
+
   check(first);
   check(last);
   check(message);

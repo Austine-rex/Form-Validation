@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontend Mentor | Product List with Cart</title>
+
+  <style>
+    :root{
+      --red:#c73b0f;
+      --rose:#fef2f0;
+      --gray:#6b7280;
+      --dark:#1f2937;
+      --light:#f9fafb;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+    body{background:var(--light);color:var(--dark)}
+
+    /* ================= LAYOUT ================= */
+    main{max-width:1200px;margin:auto;padding:32px;display:grid;grid-template-columns:3fr 1.3fr;gap:32px}
+
+    h1{font-size:36px;margin-bottom:24px}
+
+    /* ================= PRODUCTS ================= */
+    .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px}
+
+    .card{
+      background:#fff;border-radius:16px;overflow:hidden;
+      box-shadow:0 10px 20px rgba(0,0,0,.05)
+    }
+
+    .card img{width:100%;height:220px;object-fit:cover}
+
+    .card-body{padding:16px}
+    .category{font-size:14px;color:var(--gray)}
+    .title{font-weight:700;margin:6px 0}
+    .price{font-weight:700;color:var(--red)}
+
+    .add-btn{
+      width:100%;margin-top:14px;padding:12px;
+      background:var(--rose);border:2px solid var(--red);
+      color:var(--red);border-radius:30px;cursor:pointer;font-weight:700
+    }
+
+    /* ================= CART ================= */
+    .cart{
+      background:#fff;border-radius:16px;padding:24px;
+      box-shadow:0 10px 20px rgba(0,0,0,.05)
+    }
+
+    .cart h2{margin-bottom:16px}
+
+    .empty{text-align:center;color:var(--gray);padding:40px 0}
+
+    .cart-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+    .cart-item small{color:var(--gray)}
+
+    .qty{
+      display:flex;align-items:center;gap:10px
+    }
+    .qty button{
+      width:26px;height:26px;border:none;border-radius:50%;
+      background:var(--rose);color:var(--red);cursor:pointer
+    }
+
+    .total{display:flex;justify-content:space-between;font-weight:700;margin:20px 0}
+
+    .confirm{
+      width:100%;padding:14px;border:none;border-radius:30px;
+      background:var(--red);color:#fff;font-size:16px;cursor:pointer
+    }
+
+    /* ================= MODAL ================= */
+    .modal{
+      position:fixed;inset:0;background:rgba(0,0,0,.6);
+      display:none;align-items:center;justify-content:center;z-index:10
+    }
+    .modal-box{
+      background:#fff;border-radius:16px;padding:32px;width:90%;max-width:420px;text-align:center
+    }
+    .modal-box h3{margin-bottom:12px}
+
+    /* ================= MOBILE ================= */
+    @media(max-width:900px){
+      main{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <section>
+    <h1>Desserts</h1>
+    <div class="products" id="products"></div>
+  </section>
+
+  <aside class="cart">
+    <h2>Your Cart (<span id="count">0</span>)</h2>
+    <div id="cartItems" class="empty">Your added items will appear here</div>
+    <div id="cartFooter" style="display:none">
+      <div class="total"><span>Order Total</span><span id="total">$0.00</span></div>
+      <button class="confirm" onclick="openModal()">Confirm Order</button>
+    </div>
+  </aside>
+</main>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h3>Order Confirmed</h3>
+    <p>Thank you for your purchase!</p>
+    <button class="confirm" onclick="closeModal()">Start New Order</button>
+  </div>
+</div>
+
+<script>
+  const data = [
+    {id:1,name:'Waffle with Berries',cat:'Waffle',price:6.50,img:'\food\images\image-waffle-mobile.jpg'},
+    {id:2,name:'Vanilla Bean Crème Brûlée',cat:'Crème Brûlée',price:7.00,img:'https://images.unsplash.com/photo-1505253216365-7efdc2f0c4f1'},
+    {id:3,name:'Macaron Mix of Five',cat:'Macaron',price:8.00,img:'https://images.unsplash.com/photo-1612197527823-9b92e0c0f7aa'},
+    {id:4,name:'Classic Tiramisu',cat:'Tiramisu',price:5.50,img:'https://images.unsplash.com/photo-1601972599720-bc70e1a08a44'},
+    {id:5,name:'Pistachio Baklava',cat:'Baklava',price:4.00,img:'https://images.unsplash.com/photo-1625944081466-bb26a3cfdc9d'},
+    {id:6,name:'Lemon Tart',cat:'Tart',price:5.00,img:'https://images.unsplash.com/photo-1519681393784-d120267933ba'}
+  ];
+
+  const cart = {};
+
+  const productsEl = document.getElementById('products');
+  const cartItems = document.getElementById('cartItems');
+  const countEl = document.getElementById('count');
+  const totalEl = document.getElementById('total');
+  const footer = document.getElementById('cartFooter');
+
+  data.forEach(p => {
+    productsEl.innerHTML += `
+      <div class="card">
+        <img src="${p.img}" />
+        <div class="card-body">
+          <div class="category">${p.cat}</div>
+          <div class="title">${p.name}</div>
+          <div class="price">$${p.price.toFixed(2)}</div>
+          <button class="add-btn" onclick="add(${p.id})">Add to Cart</button>
+        </div>
+      </div>`;
+  });
+
+  function add(id){
+    cart[id] = (cart[id] || 0) + 1;
+    renderCart();
+  }
+
+  function change(id,val){
+    cart[id] += val;
+    if(cart[id]<=0) delete cart[id];
+    renderCart();
+  }
+
+  function renderCart(){
+    const items = Object.keys(cart);
+    if(!items.length){
+      cartItems.className='empty';
+      cartItems.innerText='Your added items will appear here';
+      footer.style.display='none';
+      countEl.innerText='0';
+      return;
+    }
+
+    cartItems.className='';
+    cartItems.innerHTML='';
+    let total=0,count=0;
+
+    items.forEach(id=>{
+      const p=data.find(x=>x.id==id);
+      total += p.price*cart[id];
+      count += cart[id];
+
+      cartItems.innerHTML += `
+        <div class="cart-item">
+          <div>
+            <strong>${p.name}</strong><br>
+            <small>$${p.price.toFixed(2)}</small>
+          </div>
+          <div class="qty">
+            <button onclick="change(${id},-1)">−</button>
+            <span>${cart[id]}</span>
+            <button onclick="change(${id},1)">+</button>
+          </div>
+        </div>`;
+    });
+
+    countEl.innerText=count;
+    totalEl.innerText=`$${total.toFixed(2)}`;
+    footer.style.display='block';
+  }
+
+  function openModal(){document.getElementById('modal').style.display='flex'}
+  function closeModal(){
+    document.getElementById('modal').style.display='none';
+    for(const k in cart) delete cart[k];
+    renderCart();
+  }
+</script>
+</body>
+</html>

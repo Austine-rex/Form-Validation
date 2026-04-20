@@ -1,0 +1,344 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+  background: #fff;
+  color: #333;
+
+}
+
+.close-hamburger .close{
+    display: none;
+}
+.hamIcon .close{
+ display: block;
+ z-index: 2;
+ position: relative;
+}
+.hamIcon .hamburger{
+    display: none;
+}
+.nav-bar-selections{
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+.close{
+  display: none;
+}
+.hamburger{
+  display: block;
+}
+.arrows{
+    background-image: url(./image-product-1.jpg);
+    padding: 1rem;
+    height: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.arrow-left{
+    background-color: white;
+    padding: 1rem;
+    border-radius: 30px;
+    height: 3rem;
+    width: 3rem;
+}
+.arrow-right{
+      background-color: white;
+    padding: 1rem;
+    border-radius: 30px;
+    height: 3rem;
+    width: 3rem;
+}
+nav{
+  display: none;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.mobileNav{
+  display: block;
+  background-color: white;
+ 
+  height: 100vh;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15rem;
+}
+.mobileNav ul{
+  padding-top: 3rem;
+ display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.nav ul li a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  position: relative;
+}
+
+.cart-icon {
+  cursor: pointer;
+  position: relative;
+}
+
+#cartBadge {
+  background: orange;
+  padding: 2px 6px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+  display: none;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.cart-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,.1);
+  padding: 16px;
+  display: none;
+  border-radius: 10px;
+}
+
+.cart-dropdown .empty {
+  text-align: center;
+  color: #888;
+  padding: 20px;
+}
+
+.product-page {
+  /* display: flex;
+  gap: 40px;
+  margin-top: 40px; */
+}
+/* 
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.thumbnails img {
+  width: 60px;
+  cursor: pointer;
+  border-radius: 8px;
+  opacity: .6;
+}
+
+.thumbnails img:hover {
+  opacity: 1;
+  border: 2px solid orange;
+} */
+
+.product-details {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.company {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #888;
+}
+
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin: 20px 0;
+}
+.price{
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+.current-price {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.discount {
+  background: black;
+  padding: 2px 6px;
+  color: white;
+  border-radius: 6px;
+}
+
+.original-price {
+  color: #aaa;
+  text-decoration: line-through;
+}
+.div-quantity{
+ background-color: rgb(228, 224, 224);
+}
+button{
+color: orangered;
+font-size: 1.2rem;
+font-weight: 600;
+background-color: rgb(228, 224, 224);
+}
+.quantity-selector {
+ 
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.quantity-selector button {
+ background-color: rgb(228, 224, 224);
+ border-radius: 10px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.add-cart {
+  width: 100%;
+  background: orange;
+  border: none;
+  padding: 14px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.five-sneakers{
+  display: none;
+}
+@media screen and (min-width:768px) {
+  .hamburger{
+    display: none;
+  }
+  .close-hamburger{
+    display: none;
+  }
+  nav{
+    display: block;
+   
+  }
+  .nav{
+    display: flex;
+    gap: 3rem;
+  }
+  ul{
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .nav-bar-selections{
+    padding: 2rem 10rem 4rem 10rem;
+    
+    
+  }
+  .arrows{
+    display: none;
+  }
+  .logo-list{
+    display: flex;
+    gap: 10rem;
+  }
+  .product-page{
+    display: flex;
+     padding: 2rem 10rem 2rem 10rem;
+     gap: 9rem;
+  }
+   .five-sneakers{
+        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .first-kicks img{
+        height: 35rem;
+        width: 35rem;
+        border-radius: 20px;
+    }
+    .first{
+        width: 20rem;
+    }
+    .kicks{
+        display: flex;
+        gap: 3rem;
+    }
+    .kicks img{
+
+        height: 6.5rem;
+        width: 6.5rem;
+        border-radius: 10px;
+    }
+     .kicks img:hover{
+      opacity: 0.7;
+      border: 4px orangered solid;
+     }
+    h1{
+      height: 1.7rem;
+      font-weight: 600;
+    }
+    .product-details{
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+    .cart-and-number{
+      display: flex;
+      gap: 2rem;
+    }
+   
+    .div-quantity{
+      height: 2.6rem;
+    }
+    .price-section{
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 0;
+      align-items: start;
+    }
+    
+} 
